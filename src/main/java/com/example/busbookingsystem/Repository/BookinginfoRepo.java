@@ -20,4 +20,9 @@ public interface BookinginfoRepo extends JpaRepository<BookingInfo,Integer> {
 
     @Query(value = "select u from BookingInfo u where u.seatno=?2 and u.busno=?1 and u.userid=?3")
     Optional<BookingInfo> findbydetails(long busno, long seatno, long userid);
+
+    @Modifying
+    @Transactional
+    @Query(value = "delete from BookingInfo where busno=?1")
+    void deleteExistingRecords(Long busId);
 }

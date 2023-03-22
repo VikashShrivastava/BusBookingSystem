@@ -49,6 +49,8 @@ public class Controller {
         service.adduser(userInfo);
         return "User Added successfully";
     }
+
+
     @GetMapping( "/checkbus")
     public List<BusInfo> checkbus(@RequestBody BusInfo busInfo) throws CustException {
         List<BusInfo>buses=service.findbuses(busInfo.getSource(),busInfo.getDestination());

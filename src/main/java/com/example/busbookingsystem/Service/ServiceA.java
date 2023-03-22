@@ -78,6 +78,7 @@ public class ServiceA {
             throw new CustException("Access Denied.....wrong password");
         }
 
+        bookinginfoRepo.deleteExistingRecords(busId);
         busRepo.deleteById(busId);
 
     }
